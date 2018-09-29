@@ -2,6 +2,10 @@
 import os
 from PIL import Image
 
+_SUCCESS	= 	1
+_EMPTY		= 	0 
+_FAIL 		= 	-1
+
 def imagesCrop(src, dest, box):
 	fileIter = os.walk(src)
 	for path,d,filelist in fileIter:  
@@ -17,10 +21,6 @@ def imageCrop(path, filename, outpath, box):
 	img = Image.open(filePath)
 	img.crop(box).save(outFilePath)
 	print ("generate image in path: %s" % (outFilePath))
-
-_SUCCESS = 1
-_EMPTY 	= 0 
-_FAIL 	= -1
 
 def pathCheck(src):
 	if os.path.exists(src):
